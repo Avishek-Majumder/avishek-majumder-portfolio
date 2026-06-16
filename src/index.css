@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom Scrollbar behavior */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* Enable custom smooth scrolling offsets natively */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Print-specific media styles for academic PDF CV generation */
+@media print {
+  /* Reset whole window backgrounds and text palettes */
+  html, body, #root {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-family: "Inter", sans-serif !important;
+    font-size: 10.5pt !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Enforce simple monochrome highlights */
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+    font-family: "Inter", sans-serif !important;
+    font-weight: 700 !important;
+    page-break-after: avoid;
+  }
+  
+  p, span, li, a {
+    color: #334155 !important;
+  }
+
+  /* Strict omission list for visual cleanups */
+  #main-header,
+  #theme-toggler,
+  #mobile-menu-toggler,
+  #project-filters-panel,
+  #publication-tabs-panel,
+  #search-projects-publications,
+  #search-projects-publications-mobile,
+  #search-clear-btn,
+  #search-clear-btn-mobile,
+  #scholar-badge-card,
+  #contact-form,
+  button,
+  footer,
+  .absolute,
+  .pointer-events-none,
+  #nav-logo,
+  #desktop-nav {
+    display: none !important;
+  }
+
+  /* Reset layout structure boundaries and containers */
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    background: #ffffff !important;
+    border: none !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    page-break-inside: avoid !important;
+  }
+
+  .max-w-7xl, .max-w-5xl, .max-w-4xl {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Unfurl columns and grids vertically */
+  .grid, .grid-cols-1, .grid-cols-2, .grid-cols-3, .grid-cols-12 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  /* Flatten and simplify card frames */
+  .group,
+  #projects-grid > div,
+  #publications-list > div,
+  #research-interests > div,
+  #skills > div {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Unfurl list links for convenient lookup on paper */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")" !important;
+    font-size: 80% !important;
+    color: #64748b !important;
+  }
+
+  /* Hide email link target details to keep email views elegant */
+  a[href^="mailto:"]:after {
+    content: "" !important;
+  }
+}
+
+/* Custom visual pulse highlight for selected search cards */
+@keyframes cardHighlight {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: none;
+    border-color: rgba(226, 232, 240, 1); /* standard light slate border */
+  }
+  15%, 85% {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.25), 0 8px 10px -6px rgba(16, 185, 129, 0.25);
+    border-color: #10b981 !important;
+    background-color: rgba(16, 185, 129, 0.04);
+  }
+}
+.animate-highlight {
+  animation: cardHighlight 2.5s ease-in-out;
+}
+
+
