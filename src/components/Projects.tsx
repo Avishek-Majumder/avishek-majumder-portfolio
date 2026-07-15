@@ -46,8 +46,8 @@ export default function Projects({ searchQuery }: ProjectsProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
-        <div id="projects-heading" className="space-y-2 mb-10 text-center">
-          <div className="font-mono text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-widest font-bold">04 / Experimental Engineering</div>
+        <div id="projects-heading" className="space-y-2 mb-14 text-center">
+          <div className="font-mono text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-widest font-bold">07 / Experimental Engineering</div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-sans text-slate-800 dark:text-slate-100">Featured Research Projects</h2>
           <div className="w-12 h-1 bg-gradient-to-r from-emerald-500 to-indigo-500 mx-auto rounded-full mt-4" />
         </div>

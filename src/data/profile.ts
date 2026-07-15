@@ -79,7 +79,7 @@ export const profile: Profile = {
     {
       role: "Prompt Engineer",
       company: "PowerinAI",
-      location: "Remote / Hybrid",
+      location: "On-site",
       period: "May 2025 – Present",
       bullets: [
         "Design and optimize enterprise-grade prompt systems for conversational AI chatbots and natural-voice agents.",
@@ -94,7 +94,7 @@ export const profile: Profile = {
       company: "Artificial Intelligence Laboratory (AI Lab)",
       location: "Rangamati Science & Technology University",
       period: "April 2024 – April 2025",
-      supervisor: "Prof. Tanjim Mahmud",
+      supervisor: "Prof. Dr. Tanjim Mahmud",
       bullets: [
         "Conducted thorough literature reviews and formally defined complex problems in image restoration and medical visual automation.",
         "Designed and formulated innovative deep learning architectures including DFGNet, SAMRBNet, and SNASRNet.",

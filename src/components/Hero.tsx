@@ -22,11 +22,7 @@ export default function Hero() {
     }
   };
 
-  const handleDownloadCV = () => {
-    const subject = "Request for Avishek Majumder's Academic CV";
-    const body = `Hello Avishek,\n\nI am reviewing your AI Researcher & Specialist Portfolio. I would love to review your latest academic CV.\n\nBest regards,`;
-    window.location.href = `mailto:avishekmajumderpciu@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
+
 
   // Find priority social links for Hero CTA section
   const scholarLink = socialLinks.find(link => link.name === "Google Scholar")?.url || "#";
@@ -120,14 +116,16 @@ export default function Hero() {
               <Send className="w-3.5 h-3.5 text-indigo-500" />
               Contact
             </button>
-            <button
+            <a
               id="hero-cta-cv"
-              onClick={handleDownloadCV}
+              href="https://drive.google.com/file/d/1d3O2WVN4hRRZPHCUTn4ilFuZY0yhEpkL/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2.5 rounded-lg font-mono text-xs uppercase tracking-wider border border-emerald-250 dark:border-emerald-500/30 bg-emerald-50 dark:bg-emerald-950/20 hover:bg-emerald-100 dark:hover:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 transition-all cursor-pointer font-bold"
             >
               <Download className="w-3.5 h-3.5" />
-              Request CV
-            </button>
+              View CV
+            </a>
           </div>
 
           {/* Dynamic Interactive Stats Dashboard Grid */}
@@ -199,50 +197,56 @@ export default function Hero() {
             </div>
 
             {/* Floating Scholarship Citation Badge */}
-            <a 
-              id="badge-citations"
-              href={scholarLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute top-4 right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-2 rounded-xl border border-slate-200 dark:border-emerald-500/30 hover:border-emerald-400 shadow-[0_4px_20px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)] select-none hover:-translate-y-1 transition-transform z-20 group text-left"
-            >
-              <div className="font-mono text-[9px] uppercase tracking-wider text-emerald-605 dark:text-emerald-400 font-bold flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-                <span>Scholar citations: 60+</span>
-              </div>
-              <div className="text-[8px] text-slate-500 font-sans mt-0.5 group-hover:text-slate-700 dark:group-hover:text-slate-350">
-                View Google Scholar Profile &rarr;
-              </div>
-            </a>
+            <div className="absolute top-4 right-0 z-20 animate-float-badge">
+              <a 
+                id="badge-citations"
+                href={scholarLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-2 rounded-xl border border-slate-200 dark:border-emerald-500/30 hover:border-emerald-400 shadow-[0_4px_20px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)] select-none hover:-translate-y-1 transition-transform group text-left"
+              >
+                <div className="font-mono text-[9px] uppercase tracking-wider text-emerald-605 dark:text-emerald-400 font-bold flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                  <span>Scholar citations: 60+</span>
+                </div>
+                <div className="text-[8px] text-slate-500 font-sans mt-0.5 group-hover:text-slate-700 dark:group-hover:text-slate-350">
+                  View Google Scholar Profile &rarr;
+                </div>
+              </a>
+            </div>
 
             {/* Floating Experience GitHub / Codebase Badge */}
-            <a 
-              id="badge-github-thesis"
-              href="https://github.com/Avishek-Majumder/snasrnet-denoise-sr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute bottom-10 left-[-20px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-2 rounded-xl border border-slate-200 dark:border-indigo-500/20 hover:border-indigo-400 shadow-[0_4px_20px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)] select-none hover:-translate-y-1 transition-transform z-20 group text-left"
-            >
-              <div className="font-mono text-[9px] uppercase tracking-wider text-indigo-605 dark:text-indigo-400 font-bold flex items-center gap-1.5">
-                <Github className="w-3 h-3 text-indigo-500 dark:text-indigo-400" />
-                <span>SNASRNet Codebase</span>
-              </div>
-              <div className="text-[8px] text-slate-500 font-sans mt-0.5 group-hover:text-slate-705 dark:group-hover:text-slate-350 font-bold">
-                Joint Denoise & Super-Res &rarr;
-              </div>
-            </a>
+            <div className="absolute bottom-10 left-[-20px] z-20 animate-float-badge-delayed">
+              <a 
+                id="badge-github-thesis"
+                href="https://github.com/Avishek-Majumder/snasrnet-denoise-sr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-2 rounded-xl border border-slate-200 dark:border-indigo-500/20 hover:border-indigo-400 shadow-[0_4px_20px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)] select-none hover:-translate-y-1 transition-transform group text-left"
+              >
+                <div className="font-mono text-[9px] uppercase tracking-wider text-indigo-605 dark:text-indigo-400 font-bold flex items-center gap-1.5">
+                  <Github className="w-3 h-3 text-indigo-500 dark:text-indigo-400" />
+                  <span>SNASRNet Codebase</span>
+                </div>
+                <div className="text-[8px] text-slate-500 font-sans mt-0.5 group-hover:text-slate-705 dark:group-hover:text-slate-350 font-bold">
+                  Joint Denoise & Super-Res &rarr;
+                </div>
+              </a>
+            </div>
 
             {/* Floating Affiliation Badge: PowerinAI / AI Lab */}
-            <div 
-              id="badge-affiliation"
-              className="absolute bottom-4 right-[-10px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-800 shadow-[0_4px_20px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)] select-none hover:-translate-y-1 transition-transform z-20"
-            >
-              <div className="font-mono text-[9px] uppercase tracking-wider text-slate-700 dark:text-slate-300 font-bold flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
-                <span>PowerinAI • AI Lab</span>
-              </div>
-              <div className="text-[8px] text-slate-500 font-sans mt-0.5 font-bold">
-                Enterprise Prompt Agent systems
+            <div className="absolute bottom-4 right-[-10px] z-20 animate-float-badge">
+              <div 
+                id="badge-affiliation"
+                className="block bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-800 shadow-[0_4px_20px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)] select-none hover:-translate-y-1 transition-transform"
+              >
+                <div className="font-mono text-[9px] uppercase tracking-wider text-slate-700 dark:text-slate-300 font-bold flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+                  <span>PowerinAI • AI Lab</span>
+                </div>
+                <div className="text-[8px] text-slate-500 font-sans mt-0.5 font-bold">
+                  Enterprise Prompt Agent systems
+                </div>
               </div>
             </div>
 

@@ -86,7 +86,7 @@ export default function Contact({ searchQuery = "" }: ContactProps) {
         
         {/* Section Heading */}
         <div id="contact-heading" className="space-y-2 mb-14 text-center">
-          <div className="font-mono text-xs text-indigo-500 dark:text-emerald-400 uppercase tracking-widest font-bold">08 / Direct Coordination</div>
+          <div className="font-mono text-xs text-indigo-500 dark:text-emerald-400 uppercase tracking-widest font-bold">11 / Direct Coordination</div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-sans text-slate-800 dark:text-slate-100">Connect & Collaborate</h2>
           <p className="text-xs text-slate-500 font-mono mt-2">
             Ask questions, request full text publication drafts, or coordinate consulting
@@ -115,7 +115,7 @@ export default function Contact({ searchQuery = "" }: ContactProps) {
               </div>
 
               {/* Grid of actual social/messaging channels */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3">
                 {socialLinks.map((link) => (
                   <a
                     id={`contact-channel-${link.name.toLowerCase().replace(/\s+/g, '-')}`}

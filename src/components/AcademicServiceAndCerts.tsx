@@ -26,8 +26,8 @@ export default function AcademicServiceAndCerts({ searchQuery }: AcademicService
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div id="academic-honor-heading" className="space-y-2 mb-14 text-center">
-          <div className="font-mono text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-widest font-bold">08 / Credentials & Honor</div>
+        <div id="academic-service-heading" className="space-y-2 mb-14 text-center">
+          <div className="font-mono text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-widest font-bold">09 / Credentials & Honor</div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-sans text-slate-800 dark:text-slate-100">
             Academic Service & Certifications
           </h2>

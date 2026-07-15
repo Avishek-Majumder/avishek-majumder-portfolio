@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Sparkles, GraduationCap, Briefcase, Code, BookOpen, Mail, Search } from "lucide-react";
+import { Menu, X, Sparkles, GraduationCap, Briefcase, Code, BookOpen, Mail, Search, FileText } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { querySearchIndex } from "../lib/searchUtils";
 
@@ -181,6 +181,17 @@ export default function Navbar({ searchQuery, setSearchQuery }: NavbarProps) {
               )}
             </form>
 
+            <a
+              href="https://drive.google.com/file/d/1d3O2WVN4hRRZPHCUTn4ilFuZY0yhEpkL/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center justify-center gap-1.5 p-1.5 px-3 rounded-lg border border-emerald-200 dark:border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-500/20 transition-colors shadow-sm cursor-pointer ml-1"
+              title="View CV"
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider hidden md:block">CV</span>
+            </a>
+
             <ThemeToggle />
 
             {/* Mobile Menu Toggle */}
@@ -230,7 +241,17 @@ export default function Navbar({ searchQuery, setSearchQuery }: NavbarProps) {
             )}
           </form>
 
-          <div className="w-full max-w-md flex flex-col items-center gap-1.5">
+          <a
+            href="https://drive.google.com/file/d/1d3O2WVN4hRRZPHCUTn4ilFuZY0yhEpkL/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full max-w-md py-3 mt-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white dark:text-slate-950 font-mono text-xs uppercase tracking-wider font-bold transition-all shadow cursor-pointer"
+          >
+            <FileText className="w-4 h-4" />
+            <span>View Resume / CV</span>
+          </a>
+
+          <div className="w-full max-w-md flex flex-col items-center gap-1.5 mt-2">
             {navLinks.map((link) => {
               const Icon = link.icon;
               return (

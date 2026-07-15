@@ -36,20 +36,6 @@ export const education: EducationItem[] = [
       status: "Currently under review at IEEE Transactions on Image Processing, Q1 Journal",
       codebase: "https://github.com/Avishek-Majumder/snasrnet-denoise-sr"
     }
-  },
-  {
-    id: "hsc",
-    degree: "Higher Secondary Certificate, HSC",
-    institution: "South Asian College Chittagong",
-    duration: "2017",
-    year: "2017"
-  },
-  {
-    id: "ssc",
-    degree: "Secondary School Certificate, SSC",
-    institution: "Municipal Model High School & College, Chattogram, Bangladesh",
-    duration: "2015",
-    year: "2015"
   }
 ];
 

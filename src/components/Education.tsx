@@ -36,7 +36,7 @@ export default function Education({ searchQuery }: EducationProps) {
         
         {/* Section Heading */}
         <div id="education-heading" className="space-y-2 mb-14 text-center">
-          <div className="font-mono text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-widest font-bold">07 / Academic Integrity</div>
+          <div className="font-mono text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-widest font-bold">04 / Academic Integrity</div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-sans text-slate-800 dark:text-slate-100">Education & Scientific Credibility</h2>
           <div className="w-12 h-1 bg-gradient-to-r from-emerald-500 to-indigo-500 mx-auto rounded-full mt-4" />
         </div>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import { BookOpen, Calendar, Clock, X, ArrowUpRight, HelpCircle, ArrowRight } from "lucide-react";
 import { portfolioData, BlogItem } from "../data/portfolioData";
 import HighlightText from "./HighlightText";
@@ -39,7 +40,7 @@ export default function ResearchBlog({ searchQuery }: ResearchBlogProps) {
         
         {/* Section Heading */}
         <div id="blog-heading" className="space-y-2 mb-14 text-center">
-          <div className="font-mono text-xs text-indigo-500 dark:text-emerald-400 uppercase tracking-widest font-bold">09 / Academic Musings</div>
+          <div className="font-mono text-xs text-indigo-500 dark:text-emerald-400 uppercase tracking-widest font-bold">10 / Academic Musings</div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-800 dark:text-slate-100">Research Notes & Insights</h2>
           <p className="text-xs text-slate-500 font-mono mt-2">
             Dissecting deep learning inverse problems, evaluation paradigms, and interactive prompting stateflows
@@ -109,10 +110,10 @@ export default function ResearchBlog({ searchQuery }: ResearchBlogProps) {
         )}
 
         {/* Reader modal / floating panel overlay */}
-        {selectedArticle && (
+        {selectedArticle && typeof document !== 'undefined' && createPortal(
           <div
             id="blog-modal-backdrop"
-            className="fixed inset-0 z-50 bg-slate-400/50 dark:bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+            className="fixed inset-0 z-[100] bg-slate-400/50 dark:bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
             onClick={() => setSelectedArticle(null)}
           >
             <div
@@ -179,7 +180,8 @@ export default function ResearchBlog({ searchQuery }: ResearchBlogProps) {
               </div>
 
             </div>
-          </div>
+          </div>,
+          document.body
         )}
 
       </div>

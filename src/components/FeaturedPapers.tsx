@@ -3,6 +3,7 @@ import { Award, BookOpen, ExternalLink, Github, Layers, Calendar, FileText } fro
 import { publications, Publication } from "../data/publications";
 import HighlightText from "./HighlightText";
 import SEO from "./SEO";
+import ImageComparisonSlider from "./ImageComparisonSlider";
 
 interface FeaturedPapersProps {
   searchQuery: string;
@@ -81,7 +82,7 @@ export default function FeaturedPapers({ searchQuery }: FeaturedPapersProps) {
         
         {/* Section Header */}
         <div id="featured-papers-heading" className="space-y-2 mb-14 text-center">
-          <div className="font-mono text-xs text-emerald-600 dark:text-emerald-400 uppercase tracking-widest font-bold">04 / Selected Highlights</div>
+          <div className="font-mono text-xs text-emerald-600 dark:text-emerald-400 uppercase tracking-widest font-bold">05 / Selected Highlights</div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-sans text-slate-800 dark:text-slate-100">
             Featured Research Papers
           </h2>
@@ -103,7 +104,7 @@ export default function FeaturedPapers({ searchQuery }: FeaturedPapersProps) {
               <div
                 key={pub.id}
                 id={`featured-paper-card-${pub.id}`}
-                className="group p-6 sm:p-7 rounded-2xl bg-slate-50 dark:bg-slate-900/10 border border-slate-200 dark:border-slate-900 hover:border-emerald-500/40 dark:hover:border-emerald-500/25 hover:bg-white dark:hover:bg-slate-900/20 hover:shadow-md transition-all duration-300 flex flex-col justify-between relative text-left"
+                className="group p-6 sm:p-7 rounded-2xl bg-slate-50 dark:bg-slate-900/10 border border-slate-200 dark:border-slate-900 hover:border-emerald-500/40 dark:hover:border-emerald-500/25 hover:bg-white dark:hover:bg-slate-900/20 shadow-sm dark:shadow-[0_0_15px_rgba(16,185,129,0.03)] hover:shadow-md dark:hover:shadow-[0_0_20px_rgba(16,185,129,0.1)] transition-all duration-300 flex flex-col justify-between relative text-left"
               >
                 {/* Micro left visual border accent for first authors */}
                 {pub.isFirstAuthor && (
@@ -116,11 +117,6 @@ export default function FeaturedPapers({ searchQuery }: FeaturedPapersProps) {
                     <span className="text-[9px] font-mono font-bold tracking-wider text-emerald-600 dark:text-emerald-400 uppercase bg-emerald-500/5 px-2 py-1 rounded-md border border-emerald-505/10">
                       {displayBadge}
                     </span>
-                    {pub.isFirstAuthor && (
-                      <span className="text-[8px] font-mono font-extrabold uppercase bg-emerald-500 text-white dark:text-slate-950 px-1.5 py-0.5 rounded">
-                        1ST AUTHOR
-                      </span>
-                    )}
                   </div>
 
                   {/* Title */}
@@ -162,6 +158,11 @@ export default function FeaturedPapers({ searchQuery }: FeaturedPapersProps) {
                   <p className="text-xs text-slate-600 dark:text-slate-350 font-sans leading-relaxed">
                     {displaySummary}
                   </p>
+
+                  {/* Demo interactive slider for SNASRNet */}
+                  {pub.id === "pub-snasrnet-under-review" && (
+                    <ImageComparisonSlider imageSrc="/snasrnet_demo.png" />
+                  )}
 
                   {/* Tags list */}
                   <div className="flex flex-wrap gap-1 pt-2">

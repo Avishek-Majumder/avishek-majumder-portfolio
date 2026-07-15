@@ -125,7 +125,7 @@ export const portfolioData = {
     {
       role: "Prompt Engineer",
       company: "PowerinAI",
-      location: "Remote / Hybrid",
+      location: "On-site",
       period: "May 2025 – Present",
       bullets: [
         "Design and optimize enterprise-grade prompt systems for conversational AI chatbots and natural-voice agents.",
@@ -140,7 +140,7 @@ export const portfolioData = {
       company: "Artificial Intelligence Laboratory (AI Lab)",
       location: "Rangamati Science & Technology University",
       period: "April 2024 – April 2025",
-      supervisor: "Prof. Tanjim Mahmud",
+      supervisor: "Prof. Dr. Tanjim Mahmud",
       bullets: [
         "Conducted thorough literature reviews and formally defined complex problems in image restoration and medical visual automation.",
         "Designed and formulated innovative deep learning architectures including DFGNet, SAMRBNet, and SNASRNet.",
@@ -335,30 +335,30 @@ export const portfolioData = {
   blog: [
     {
       id: "blog-1",
-      title: "Building Robust Vision Models Under Real-World Noise",
-      date: "June 2026",
-      readTime: "6 min read",
-      category: "Computer Vision",
-      excerpt: "Why pure-Gaussian denoising fails in outer space and clinical scenarios, and how real-world multi-noise registration architectures change the super-resolution landscape.",
-      content: "When training image restoration architectures, the academic community frequently relies on synthetic datasets contaminated with clean, mathematically pristine white Gaussian noise. But in practice, real-world camera sensors, satellite arrays, and MRI devices capture composite multi-noise mixtures containing impulse noise, Poisson noise, and banding. In this article, we deep-dive into how our unified model coordinates multi-noise detection heads and structural attention pipelines, proving that joint training on combined denoising and super-resolution yields 4.2dB PSNR gains over sequential pipelines."
+      title: "The Rise of Small Language Models (SLMs) in Edge AI",
+      date: "July 2026",
+      readTime: "8 min read",
+      category: "AI Trends",
+      excerpt: "Why massive trillion-parameter models aren't always the answer, and how SLMs like Phi-3 and Llama-3-8B are revolutionizing local edge computing and privacy-first AI applications.",
+      content: "For years, the AI industry's mantra was 'bigger is better.' However, the recent explosion in highly optimized Small Language Models (SLMs) is shifting the paradigm. By leveraging advanced training techniques like high-quality textbook data synthesis and distillation from larger frontier models, SLMs now punch significantly above their weight class. In this article, I analyze the performance per watt of models under 10 billion parameters running on mobile NPU architectures. These models not only guarantee user privacy by processing data locally, but they also severely cut down cloud computing costs. I also explore the ongoing research in quantization techniques like AWQ and EXL2 that make edge deployment viable without noticeable degradation in reasoning."
     },
     {
       id: "blog-2",
-      title: "What Prompt Engineers Can Learn from Research Evaluation",
+      title: "Self-Rewarding AI: Beyond Reinforcement Learning from Human Feedback (RLHF)",
       date: "May 2026",
-      readTime: "5 min read",
-      category: "AI & Prompting",
-      excerpt: "Connecting the rigor of scientific evaluation with production prompt metrics to eliminate hallucinations and build resilient chatbot workflows.",
-      content: "Many prompt engineers approach prompt optimization through informal trial-and-error. But as AI systems migrate into medical assistants and financial hubs, prompt engineering must adopt scientific methods. By modeling prompt trees as structured hypothesis spaces and conducting targeted ablations—similar to deep learning model development—we can design intent-aware routing filters. In this guide, we review how to use RAG retrieval score validation and custom LLM-as-a-judge patterns to evaluate multilingual voice workflows."
+      readTime: "7 min read",
+      category: "Machine Learning",
+      excerpt: "Exploring the next frontier of model alignment where Large Language Models act as their own judges, drastically reducing the bottleneck of human annotation.",
+      content: "Reinforcement Learning from Human Feedback (RLHF) was the secret sauce that aligned GPT-4 and Claude to human preferences. However, human annotation is inherently slow, expensive, and subject to cultural bias. The latest breakthrough in alignment research focuses on Self-Rewarding Language Models. By training an LLM to simultaneously generate responses and score them using an internal reward mechanism (LLM-as-a-judge), models can self-improve continuously in a loop. I dive deep into the mathematics behind Direct Preference Optimization (DPO) and how eliminating the separate reward model streamlines the training pipeline, potentially leading to super-human reasoning capabilities faster than previously predicted."
     },
     {
       id: "blog-3",
-      title: "RAG Systems: From Knowledge Base to Reliable AI Assistant",
+      title: "Multimodal RAG: Integrating Vision and Text in Enterprise Workflows",
       date: "March 2026",
-      readTime: "7 min read",
+      readTime: "9 min read",
       category: "RAG & Workflows",
-      excerpt: "A architectural deep-dive into building stateful, production-ready RAG channels using advanced n8n triggers and hierarchical metadata chunking.",
-      content: "Simply connecting PDF collections to a vector database does not make a reliable RAG helper. Production deployments require sophisticated pre-retrieval routing, semantic query expansion, and post-retrieval reranking filters. Here, we dissect the design of an automated n8n knowledge synchronization pipeline, detailing how to chunk dense technical literature and use confidence scores to prevent hallucination in real-time customer chatbots."
+      excerpt: "Moving past text-only knowledge bases. How integrating visual encoders like CLIP and multimodal LLMs transforms document retrieval for charts, diagrams, and scanned PDFs.",
+      content: "Traditional Retrieval-Augmented Generation (RAG) pipelines struggle immensely when critical knowledge is trapped inside diagrams, flowcharts, or complex tables in enterprise documents. The new standard is Multimodal RAG. By utilizing Vision-Language Models (VLMs), we can embed both text and images into the same vector space. In this comprehensive breakdown, I evaluate the architecture required to chunk and index visual elements alongside textual context. I also discuss practical implementation challenges, such as aligning multi-vector retrievers with LangChain, and how visual context drastically reduces hallucination rates when AI agents answer questions based on dense financial reports or engineering schematics."
     }
   ] as BlogItem[]
 };

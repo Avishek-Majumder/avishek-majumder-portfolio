@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BookOpen, Award, CheckSquare, Layers, FileText, ChevronRight, ExternalLink, Bookmark, Copy, Check, Github, GraduationCap } from "lucide-react";
 import { publications, Publication } from "../data/publications";
 import { socialLinks } from "../data/socialLinks";
@@ -13,6 +13,7 @@ export default function Publications({ searchQuery }: PublicationsProps) {
   const [activeTab, setActiveTab] = useState<string>('all');
   const [copiedDoiId, setCopiedDoiId] = useState<string | null>(null);
   const [isExpanded, setIsExpanded] = useState<boolean>(true); // Support compact or expanded view toggling
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const tabs = [
     { id: 'all', label: 'All Publications', icon: Layers },
@@ -66,6 +67,15 @@ export default function Publications({ searchQuery }: PublicationsProps) {
         (pub.doi && pub.doi.toLowerCase().includes(query))
       )
     : filteredPublications;
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeTab, searchQuery]);
+
+  const itemsPerPage = 4;
+  const totalPages = Math.ceil(searchFiltered.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedPublications = searchFiltered.slice(startIndex, startIndex + itemsPerPage);
 
   // Google Scholar profiles
   const scholarUrl = socialLinks.find(link => link.name === "Google Scholar")?.url || "https://scholar.google.com/citations?user=wBgGImMAAAAJ";
@@ -152,9 +162,9 @@ export default function Publications({ searchQuery }: PublicationsProps) {
 
         {/* Dynamic Section Header */}
         <div id="publications-heading" className="space-y-2 mb-8 text-center">
-          <div className="font-mono text-xs text-indigo-500 dark:text-emerald-400 uppercase tracking-widest font-bold">05 / Peer-Reviewed Literature</div>
+          <div className="font-mono text-xs text-indigo-500 dark:text-emerald-400 uppercase tracking-widest font-bold">06 / Peer-Reviewed Literature</div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-sans text-slate-800 dark:text-slate-100">
-            {publications.length} Research Publications
+            Research Publications
           </h2>
           <p className="text-xs text-slate-500 font-mono">
             Filter by academic venue category or specific deep learning domain
@@ -200,7 +210,7 @@ export default function Publications({ searchQuery }: PublicationsProps) {
 
         {/* Publication Cards list layout */}
         <div id="publications-list" className="space-y-4">
-          {searchFiltered.map((pub: Publication) => {
+          {paginatedPublications.map((pub: Publication) => {
             const isIEEE = pub.publisher?.toLowerCase().includes("ieee");
             const hasPaperUrl = pub.paperUrl && pub.paperUrl !== "#";
             
@@ -416,6 +426,28 @@ export default function Publications({ searchQuery }: PublicationsProps) {
             </div>
           )}
         </div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-2 mt-10">
+            {Array.from({ length: totalPages }).map((_, idx) => {
+              const pageNum = idx + 1;
+              return (
+                <button
+                  key={pageNum}
+                  onClick={() => setCurrentPage(pageNum)}
+                  className={`w-8 h-8 rounded-lg font-mono text-xs font-bold transition-all cursor-pointer ${
+                    currentPage === pageNum
+                      ? "bg-emerald-600 text-white dark:bg-emerald-500 dark:text-slate-950 shadow-md border border-emerald-600 dark:border-emerald-500"
+                      : "bg-slate-100 text-slate-500 hover:bg-slate-200 dark:bg-slate-900/50 dark:text-slate-400 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800"
+                  }`}
+                >
+                  {pageNum}
+                </button>
+              );
+            })}
+          </div>
+        )}
 
       </div>
     </section>
